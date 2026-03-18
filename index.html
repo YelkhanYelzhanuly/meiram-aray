@@ -28,10 +28,52 @@
     background: linear-gradient(to right, #e8d5b0, #c9a96e, #e8d5b0);
   }
 
+  /* Language switcher */
+  .lang-bar {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 16px 32px 0;
+  }
+
+  .lang-btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    border: 0.5px solid rgba(201,169,110,0.35);
+    background: transparent;
+    color: #b8956a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .lang-btn:hover {
+    border-color: rgba(201,169,110,0.7);
+    color: #c9a96e;
+  }
+
+  .lang-btn.active {
+    background: rgba(201,169,110,0.15);
+    border-color: #c9a96e;
+    color: #3a2e1e;
+    font-weight: 400;
+  }
+
+  /* Page content fade */
+  .page-content {
+    transition: opacity 0.22s ease;
+  }
+  .page-content.fading {
+    opacity: 0;
+  }
+
   /* Hero */
   .hero {
     text-align: center;
-    padding: 52px 32px 36px;
+    padding: 40px 32px 36px;
   }
 
   .top-label {
@@ -110,7 +152,7 @@
     color: #5a4633;
   }
 
-  /* Parents block */
+  /* Parents */
   .parents-block {
     text-align: center;
     padding: 28px 40px 0;
@@ -402,28 +444,12 @@
     box-shadow: 0 2px 12px rgba(201,169,110,0.15);
   }
 
-  /* Note */
-  .note-section {
-    padding: 0 32px 36px;
-    text-align: center;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 1.9s forwards;
-  }
-
-  .note-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #7a6040;
-  }
-
   /* Footer */
   .footer {
     text-align: center;
     padding: 10px 32px 36px;
     opacity: 0;
-    animation: fadeUp 0.9s ease 2.1s forwards;
+    animation: fadeUp 0.9s ease 1.9s forwards;
   }
 
   .footer-names {
@@ -475,180 +501,296 @@
 <div class="page">
   <div class="top-border"></div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="top-label">Үйлену той · 2026</div>
-
-    <div class="ornament-svg">
-      <svg width="180" height="48" viewBox="0 0 180 48" fill="none">
-        <path d="M90 6 L94 18 L108 18 L97 26 L101 38 L90 30 L79 38 L83 26 L72 18 L86 18 Z" stroke="#c9a96e" stroke-width="0.6" fill="rgba(201,169,110,0.08)"/>
-        <line x1="10" y1="24" x2="64" y2="24" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-        <line x1="116" y1="24" x2="170" y2="24" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-        <circle cx="10" cy="24" r="2.5" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-        <circle cx="170" cy="24" r="2.5" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-        <circle cx="22" cy="24" r="1.5" fill="#c9a96e" opacity="0.35"/>
-        <circle cx="158" cy="24" r="1.5" fill="#c9a96e" opacity="0.35"/>
-      </svg>
-    </div>
-
-    <div class="couple-names">
-      <div class="name-main">Мейрам</div>
-      <span class="name-amp">&amp;</span>
-      <div class="name-main">Арай</div>
-    </div>
-
-    <div class="divider-row">
-      <div class="div-line"></div>
-      <div class="div-dot"></div>
-      <div class="div-line"></div>
-    </div>
+  <!-- Language switcher -->
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('kaz')">KAZ</button>
+    <button class="lang-btn" onclick="setLang('tur')">TUR</button>
+    <button class="lang-btn" onclick="setLang('eng')">ENG</button>
   </div>
 
-  <!-- Invite text -->
-  <div class="invite-block">
-    <div class="invite-from">Құрметті қонақтарымыз</div>
-    <div class="invite-body">
-      Үйлену тойымызға<br>
-      Сізді шын жүректен шақырамыз.<br><br>
-      Бұл қасиетті күнді бізбен бірге<br>
-      тойлап, бақытымызға ортақтасыңыз.
-    </div>
-  </div>
+  <div class="page-content" id="page-content">
 
-  <!-- Parents -->
-  <div class="parents-block">
-    <div class="parents-label">Той иелері</div>
-    <div class="parents-names">Елжан мен Гүлзайда</div>
-  </div>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="top-label" id="txt-hero-label">Үйлену той · 2026</div>
 
-  <!-- Date -->
-  <div class="date-section">
-    <div class="date-label">Той күні</div>
-    <div class="date-big">11</div>
-    <div class="date-sub">Шілде &nbsp;·&nbsp; 2026</div>
-    <div class="time-pill">Сағат 19:00</div>
-  </div>
-
-  <!-- Timer -->
-  <div class="timer-section">
-    <div class="sec-label-center">Тойға дейін қалды</div>
-    <div class="timer-grid">
-      <div class="timer-unit">
-        <span class="timer-number" id="t-days">—</span>
-        <span class="timer-suffix">Күн</span>
+      <div class="ornament-svg">
+        <svg width="180" height="48" viewBox="0 0 180 48" fill="none">
+          <path d="M90 6 L94 18 L108 18 L97 26 L101 38 L90 30 L79 38 L83 26 L72 18 L86 18 Z" stroke="#c9a96e" stroke-width="0.6" fill="rgba(201,169,110,0.08)"/>
+          <line x1="10" y1="24" x2="64" y2="24" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+          <line x1="116" y1="24" x2="170" y2="24" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="10" cy="24" r="2.5" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="170" cy="24" r="2.5" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="22" cy="24" r="1.5" fill="#c9a96e" opacity="0.35"/>
+          <circle cx="158" cy="24" r="1.5" fill="#c9a96e" opacity="0.35"/>
+        </svg>
       </div>
-      <div class="timer-unit">
-        <span class="timer-number" id="t-hours">—</span>
-        <span class="timer-suffix">Сағат</span>
+
+      <div class="couple-names">
+        <div class="name-main" id="txt-name-groom">Мейрам</div>
+        <span class="name-amp">&amp;</span>
+        <div class="name-main" id="txt-name-bride">Арай</div>
       </div>
-      <div class="timer-unit">
-        <span class="timer-number" id="t-mins">—</span>
-        <span class="timer-suffix">Минут</span>
-      </div>
-      <div class="timer-unit">
-        <span class="timer-number" id="t-secs">—</span>
-        <span class="timer-suffix">Секунд</span>
+
+      <div class="divider-row">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line"></div>
       </div>
     </div>
-  </div>
 
-  <!-- Program -->
-  <div class="program-section">
-    <div class="section-row">
-      <div class="sec-line"></div>
-      <div class="sec-label">Той бағдарламасы</div>
-      <div class="sec-line"></div>
+    <!-- Invite text -->
+    <div class="invite-block">
+      <div class="invite-from" id="txt-invite-label">Құрметті қонақтарымыз</div>
+      <div class="invite-body" id="txt-invite-body">
+        Үйлену тойымызға<br>
+        Сізді шын жүректен шақырамыз.<br><br>
+        Бұл қасиетті күнді бізбен бірге<br>
+        тойлап, бақытымызға ортақтасыңыз.
+      </div>
     </div>
-    <div>
-      <div class="program-item">
-        <div class="prog-time">19:00</div>
-        <div class="prog-dot"></div>
-        <div>
-          <span class="prog-title">Қонақтарды қарсы алу</span>
-          <span class="prog-sub">Той залына кіру, орындарға отыру</span>
+
+    <!-- Parents -->
+    <div class="parents-block">
+      <div class="parents-label" id="txt-parents-label">Той иелері</div>
+      <div class="parents-names" id="txt-parents-names">Елжан мен Гүлзайда</div>
+    </div>
+
+    <!-- Date -->
+    <div class="date-section">
+      <div class="date-label" id="txt-date-label">Той күні</div>
+      <div class="date-big">11</div>
+      <div class="date-sub" id="txt-date-month">Шілде &nbsp;·&nbsp; 2026</div>
+      <div class="time-pill" id="txt-time-pill">Сағат 19:00</div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-section">
+      <div class="sec-label-center" id="txt-timer-label">Тойға дейін қалды</div>
+      <div class="timer-grid">
+        <div class="timer-unit">
+          <span class="timer-number" id="t-days">—</span>
+          <span class="timer-suffix" id="txt-days">Күн</span>
         </div>
-      </div>
-      <div class="program-item">
-        <div class="prog-time">19:30</div>
-        <div class="prog-dot"></div>
-        <div>
-          <span class="prog-title">Бет ашар рәсімі</span>
-          <span class="prog-sub">Жастардың бақытты сәті</span>
+        <div class="timer-unit">
+          <span class="timer-number" id="t-hours">—</span>
+          <span class="timer-suffix" id="txt-hours">Сағат</span>
         </div>
-      </div>
-      <div class="program-item">
-        <div class="prog-time">20:00</div>
-        <div class="prog-dot"></div>
-        <div>
-          <span class="prog-title">Дастархан</span>
-          <span class="prog-sub">Мереке асы басталады</span>
+        <div class="timer-unit">
+          <span class="timer-number" id="t-mins">—</span>
+          <span class="timer-suffix" id="txt-mins">Минут</span>
         </div>
-      </div>
-      <div class="program-item">
-        <div class="prog-time">21:00</div>
-        <div class="prog-dot"></div>
-        <div>
-          <span class="prog-title">Би кеші</span>
-          <span class="prog-sub">Музыка, ән және би</span>
+        <div class="timer-unit">
+          <span class="timer-number" id="t-secs">—</span>
+          <span class="timer-suffix" id="txt-secs">Секунд</span>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Venue -->
-  <div class="venue-section">
-    <div class="section-row">
-      <div class="sec-line"></div>
-      <div class="sec-label">Той өтетін орын</div>
-      <div class="sec-line"></div>
-    </div>
-
-    <div class="venue-card">
-      <div class="venue-info">
-        <div class="venue-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div>
-          <div class="venue-name">ARNAU</div>
-          <div class="venue-addr">Мейрамхана · Орал қаласы</div>
-        </div>
+    <!-- Program -->
+    <div class="program-section">
+      <div class="section-row">
+        <div class="sec-line"></div>
+        <div class="sec-label" id="txt-program-title">Той бағдарламасы</div>
+        <div class="sec-line"></div>
       </div>
-
-      <div class="map-wrap">
-        <iframe
-          src="https://maps.google.com/maps?q=51.2536737,51.449543&z=15&output=embed&hl=kk"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-        <div class="map-cover">
-          <a class="map-btn" href="https://2gis.kz/uralsk/geo/70000001090572282" target="_blank">
-            2GIS · Жол сілтеу
-          </a>
+      <div>
+        <div class="program-item">
+          <div class="prog-time">19:00</div>
+          <div class="prog-dot"></div>
+          <div>
+            <span class="prog-title" id="txt-p1-title">Қонақтарды қарсы алу</span>
+            <span class="prog-sub" id="txt-p1-sub">Той залына кіру, орындарға отыру</span>
+          </div>
+        </div>
+        <div class="program-item">
+          <div class="prog-time">19:30</div>
+          <div class="prog-dot"></div>
+          <div>
+            <span class="prog-title" id="txt-p2-title">Бет ашар рәсімі</span>
+            <span class="prog-sub" id="txt-p2-sub">Жастардың бақытты сәті</span>
+          </div>
+        </div>
+        <div class="program-item">
+          <div class="prog-time">20:00</div>
+          <div class="prog-dot"></div>
+          <div>
+            <span class="prog-title" id="txt-p3-title">Дастархан</span>
+            <span class="prog-sub" id="txt-p3-sub">Мереке асы басталады</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <div class="divider-row" style="margin: 0 0 28px;">
-      <div class="div-line"></div>
-      <div class="div-dot"></div>
-      <div class="div-line"></div>
+    <!-- Venue -->
+    <div class="venue-section">
+      <div class="section-row">
+        <div class="sec-line"></div>
+        <div class="sec-label" id="txt-venue-title">Той өтетін орын</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-info">
+          <div class="venue-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="venue-name">ARNAU</div>
+            <div class="venue-addr" id="txt-venue-addr">Мейрамхана · Орал қаласы</div>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=51.2536737,51.449543&z=15&output=embed&hl=kk"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="map-cover">
+            <a class="map-btn" id="txt-map-btn" href="https://2gis.kz/uralsk/geo/70000001090572282" target="_blank">
+              2GIS · Жол сілтеу
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-names">Мейрам &amp; Арай</div>
-    <div class="footer-date">11 · 07 · 2026</div>
-  </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="divider-row" style="margin: 0 0 28px;">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line"></div>
+      </div>
+      <div class="footer-names" id="txt-footer-names">Мейрам &amp; Арай</div>
+      <div class="footer-date">11 · 07 · 2026</div>
+    </div>
+
+  </div><!-- /page-content -->
 
   <div class="bottom-border"></div>
 </div>
 
 <script>
-  // Falling petals
+  // ── Translations ──────────────────────────────────────────────
+  const translations = {
+    kaz: {
+      'txt-name-groom':    'Мейрам',
+      'txt-name-bride':    'Арай',
+      'txt-footer-names':  'Мейрам &amp; Арай',
+      'txt-parents-names': 'Елжан мен Гүлзайда',
+      'txt-hero-label':    'Үйлену той · 2026',
+      'txt-invite-label':  'Құрметті қонақтарымыз',
+      'txt-invite-body':   'Үйлену тойымызға<br>Сізді шын жүректен шақырамыз.<br><br>Бұл қуанышты күнді бізбен бірге<br>тойлап, қуанышымызға ортақтасыңыз.',
+      'txt-parents-label': 'Той иелері',
+      'txt-date-label':    'Той күні',
+      'txt-date-month':    'Шілде &nbsp;·&nbsp; 2026',
+      'txt-time-pill':     'Сағат 19:00',
+      'txt-timer-label':   'Тойға дейін қалды',
+      'txt-days':          'Күн',
+      'txt-hours':         'Сағат',
+      'txt-mins':          'Минут',
+      'txt-secs':          'Секунд',
+      'txt-program-title': 'Той бағдарламасы',
+      'txt-p1-title':      'Қонақтарды қарсы алу',
+      'txt-p1-sub':        'Той залына кіру, орындарға отыру',
+      'txt-p2-title':      'Бет ашар рәсімі',
+      'txt-p2-sub':        'Жастардың бақытты сәті',
+      'txt-p3-title':      'Дастархан',
+      'txt-p3-sub':        'Мереке асы басталады',
+      'txt-venue-title':   'Той өтетін орын',
+      'txt-venue-addr':    'Мейрамхана · Орал қаласы',
+      'txt-map-btn':       '2GIS · Жол сілтеу',
+    },
+    tur: {
+      'txt-name-groom':    'Meiram',
+      'txt-name-bride':    'Aray',
+      'txt-footer-names':  'Meiram &amp; Aray',
+      'txt-parents-names': 'Eljan ve Gülzayda',
+      'txt-hero-label':    'Düğün · 2026',
+      'txt-invite-label':  'Sevgili misafirlerimiz',
+      'txt-invite-body':   'Düğün törenimize<br>sizi içtenlikle davet ediyoruz.<br><br>Bu kutsal günü bizimle birlikte<br>kutlamanızı ve mutluluğumuza<br>ortak olmanızı diliyoruz.',
+      'txt-parents-label': 'Düğün sahipleri',
+      'txt-date-label':    'Düğün tarihi',
+      'txt-date-month':    'Temmuz &nbsp;·&nbsp; 2026',
+      'txt-time-pill':     'Saat 19:00',
+      'txt-timer-label':   'Düğüne kalan süre',
+      'txt-days':          'Gün',
+      'txt-hours':         'Saat',
+      'txt-mins':          'Dakika',
+      'txt-secs':          'Saniye',
+      'txt-program-title': 'Düğün programı',
+      'txt-p1-title':      'Misafirlerin kabulü',
+      'txt-p1-sub':        'Salon girişi ve oturma',
+      'txt-p2-title':      'Gelin yüzü açma töreni',
+      'txt-p2-sub':        'Gençlerin mutlu anı',
+      'txt-p3-title':      'Ziyafet',
+      'txt-p3-sub':        'Düğün yemeği başlıyor',
+      'txt-venue-title':   'Düğün mekanı',
+      'txt-venue-addr':    'Restoran · Oral şehri',
+      'txt-map-btn':       '2GIS · Yol tarifi',
+    },
+    eng: {
+      'txt-name-groom':    'Meiram',
+      'txt-name-bride':    'Arai',
+      'txt-footer-names':  'Meiram &amp; Arai',
+      'txt-parents-names': 'Yelzhan &amp; Gulzaida',
+      'txt-hero-label':    'Wedding · 2026',
+      'txt-invite-label':  'Dear guests',
+      'txt-invite-body':   'We joyfully invite you<br>to celebrate our wedding.<br><br>Please join us on this special day<br>and share in our happiness.',
+      'txt-parents-label': 'Hosts',
+      'txt-date-label':    'Wedding date',
+      'txt-date-month':    'July &nbsp;·&nbsp; 2026',
+      'txt-time-pill':     '7:00 PM',
+      'txt-timer-label':   'Countdown to the wedding',
+      'txt-days':          'Days',
+      'txt-hours':         'Hours',
+      'txt-mins':          'Minutes',
+      'txt-secs':          'Seconds',
+      'txt-program-title': 'Wedding program',
+      'txt-p1-title':      'Guest reception',
+      'txt-p1-sub':        'Welcome and seating',
+      'txt-p2-title':      'Veil ceremony',
+      'txt-p2-sub':        'A special moment for the newlyweds',
+      'txt-p3-title':      'Wedding dinner',
+      'txt-p3-sub':        'Feast and celebration begin',
+      'txt-venue-title':   'Venue',
+      'txt-venue-addr':    'Restaurant · Oral city',
+      'txt-map-btn':       '2GIS · Get directions',
+    }
+  };
+
+  let currentLang = 'kaz';
+
+  function setLang(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+
+    // Fade out → update → fade in
+    const content = document.getElementById('page-content');
+    content.classList.add('fading');
+
+    setTimeout(() => {
+      const t = translations[lang];
+      for (const [id, val] of Object.entries(t)) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val;
+      }
+      content.classList.remove('fading');
+    }, 220);
+  }
+
+  // ── Falling petals ────────────────────────────────────────────
   for (let i = 0; i < 10; i++) {
     const p = document.createElement('div');
     p.className = 'petal';
@@ -657,7 +799,7 @@
     document.body.appendChild(p);
   }
 
-  // Countdown timer
+  // ── Countdown timer ───────────────────────────────────────────
   const target = new Date('2026-07-11T19:00:00');
   const pad = n => String(n).padStart(2, '0');
 
