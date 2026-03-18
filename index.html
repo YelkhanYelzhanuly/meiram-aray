@@ -110,30 +110,29 @@
     color: #5a4633;
   }
 
-  /* Quran */
-  .quran-block {
-    margin: 32px 32px 0;
-    padding: 20px 24px;
-    border-left: 2px solid #c9a96e;
-    background: rgba(201,169,110,0.07);
-    border-radius: 0 4px 4px 0;
+  /* Parents block */
+  .parents-block {
+    text-align: center;
+    padding: 28px 40px 0;
     opacity: 0;
     animation: fadeUp 0.9s ease 1.1s forwards;
   }
 
-  .quran-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    line-height: 1.8;
-    color: #7a6040;
+  .parents-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 12px;
   }
 
-  .quran-ref {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #c9a96e;
-    margin-top: 8px;
+  .parents-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #3a2e1e;
+    letter-spacing: 1px;
+    line-height: 1.7;
   }
 
   /* Date */
@@ -153,12 +152,14 @@
   }
 
   .date-big {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Jost', sans-serif;
     font-size: 88px;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 1;
     color: #c9a96e;
     letter-spacing: -2px;
+    font-variant-numeric: normal;
+    font-feature-settings: "lnum" 1;
   }
 
   .date-sub {
@@ -507,20 +508,17 @@
   <div class="invite-block">
     <div class="invite-from">Құрметті қонақтарымыз</div>
     <div class="invite-body">
-      Некелесу тойымызға<br>
+      Үйлену тойымызға<br>
       Сізді шын жүректен шақырамыз.<br><br>
       Бұл қасиетті күнді бізбен бірге<br>
       тойлап, бақытымызға ортақтасыңыз.
     </div>
   </div>
 
-  <!-- Quran -->
-  <div class="quran-block">
-    <div class="quran-text">
-      «Ол сендер үшін өз жандарыңнан жұбайлар жаратты,
-      арамызда махаббат пен мейірім орнатты»
-    </div>
-    <div class="quran-ref">Ар-Рум сүресі · 21-аят</div>
+  <!-- Parents -->
+  <div class="parents-block">
+    <div class="parents-label">Той иелері</div>
+    <div class="parents-names">Елжан мен Гүлзайда</div>
   </div>
 
   <!-- Date -->
@@ -574,7 +572,7 @@
         <div class="prog-time">19:30</div>
         <div class="prog-dot"></div>
         <div>
-          <span class="prog-title">Неке қию рәсімі</span>
+          <span class="prog-title">Бет ашар рәсімі</span>
           <span class="prog-sub">Жастардың бақытты сәті</span>
         </div>
       </div>
@@ -635,29 +633,13 @@
     </div>
   </div>
 
-  <!-- Note -->
-  <div class="note-section">
-    <div class="divider-row" style="margin: 0 0 24px;">
+  <!-- Footer -->
+  <div class="footer">
+    <div class="divider-row" style="margin: 0 0 28px;">
       <div class="div-line"></div>
       <div class="div-dot"></div>
       <div class="div-line"></div>
     </div>
-    <div class="note-text">
-      Сіздің қатысуыңыз бізге<br>
-      ең үлкен сыйлық болады.<br><br>
-      Тойға балаларды алып келуге болады —<br>
-      олар үшін де орын дайын.
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <svg width="80" height="18" viewBox="0 0 80 18" fill="none" style="margin-bottom:16px; display:block; margin-left:auto; margin-right:auto;">
-      <line x1="0" y1="9" x2="30" y2="9" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-      <circle cx="40" cy="9" r="3.5" stroke="#c9a96e" stroke-width="0.5" fill="rgba(201,169,110,0.1)"/>
-      <circle cx="40" cy="9" r="1" fill="#c9a96e" opacity="0.7"/>
-      <line x1="50" y1="9" x2="80" y2="9" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-    </svg>
     <div class="footer-names">Мейрам &amp; Арай</div>
     <div class="footer-date">11 · 07 · 2026</div>
   </div>
