@@ -601,9 +601,53 @@
     0%   { transform: translateY(-6px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
   }
+  /* Music button */
+  .music-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #faf5ee;
+    border: 0.5px solid rgba(201,169,110,0.6);
+    box-shadow: 0 4px 16px rgba(201,169,110,0.25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .music-btn:hover {
+    background: rgba(201,169,110,0.15);
+    transform: scale(1.08);
+  }
+
+  .music-btn svg {
+    width: 18px;
+    height: 18px;
+  }
 </style>
 </head>
 <body>
+
+<!-- Background music -->
+<audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+<!-- Music control button -->
+<button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Музыка">
+  <svg id="music-icon-play" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <polygon points="10,8 16,12 10,16" fill="#c9a96e" stroke="none"/>
+  </svg>
+  <svg id="music-icon-pause" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="10" y1="8" x2="10" y2="16"/>
+    <line x1="14" y1="8" x2="14" y2="16"/>
+  </svg>
+</button>
 
 <div class="page">
   <div class="top-border"></div>
@@ -654,7 +698,7 @@
         Сыйлас дос-жарандар, әріптестер мен көршілер!
       </div>
       <div class="invite-body invite-body-2" id="txt-invite-body3">
-        Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуыңызды өтінеміз. Төрімізден орын алып, жас жұбайларға ақ баталарыңызды беріп, думанымызды бірге қыздыруға келіңіздер!
+        Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қонағы болуыңызға шақырамыз!
       </div>
     </div>
 
@@ -807,7 +851,7 @@
       'txt-hero-label':    'Үйлену той · 2026',
       'txt-invite-label':  'Құрметті қонақтарымыз',
       'txt-invite-body':   'Құрметті ағайын-туыс, бауырлар!<br>Қадірлі құда-жекжат, нағашы-жиендер!<br>Сыйлас дос-жарандар, әріптестер мен көршілер!',
-      'txt-invite-body3':  'Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуыңызды өтінеміз. Төрімізден орын алып, жас жұбайларға ақ баталарыңызды беріп, думанымызды бірге қыздыруға келіңіздер!',
+      'txt-invite-body3':  'Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қонағы болуыңызға шақырамыз!',
       'txt-cal-month':     'Шілде 2026',
       'cal-d0': 'Дс', 'cal-d1': 'Сс', 'cal-d2': 'Ср', 'cal-d3': 'Бс', 'cal-d4': 'Жм', 'cal-d5': 'Сб', 'cal-d6': 'Жс',
       'txt-parents-label': 'Той иелері',
@@ -989,6 +1033,27 @@
 
   tick();
   setInterval(tick, 1000);
+
+  // ── Music ─────────────────────────────────────────────────────
+  const audio = document.getElementById('bg-music');
+  let musicPlaying = false;
+
+  function toggleMusic() {
+    const iconPlay  = document.getElementById('music-icon-play');
+    const iconPause = document.getElementById('music-icon-pause');
+
+    if (!musicPlaying) {
+      audio.play();
+      iconPlay.style.display  = 'none';
+      iconPause.style.display = 'block';
+      musicPlaying = true;
+    } else {
+      audio.pause();
+      iconPlay.style.display  = 'block';
+      iconPause.style.display = 'none';
+      musicPlaying = false;
+    }
+  }
 </script>
 </body>
 </html>
