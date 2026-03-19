@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мейрам & Арай · 11.07.2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
     background: #f7f0e6;
     color: #3a2e1e;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 400;
   }
 
   .page {
@@ -37,7 +37,7 @@
   }
 
   .lang-btn {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Golos Text', sans-serif;
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -98,18 +98,18 @@
   }
 
   .name-main {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-weight: 300;
-    font-size: 64px;
+    font-size: 68px;
     line-height: 1;
     color: #3a2e1e;
     letter-spacing: 3px;
   }
 
   .name-amp {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-style: italic;
-    font-size: 30px;
+    font-size: 32px;
     color: #c9a96e;
     display: block;
     margin: 10px 0;
@@ -145,11 +145,118 @@
   }
 
   .invite-body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-style: italic;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.9;
     color: #5a4633;
+  }
+
+  .invite-body-2 {
+    margin-top: 18px;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #5a4633;
+  }
+
+  .invite-body-3 {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #7a6040;
+    font-style: normal;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Calendar */
+  .cal-card {
+    margin: 24px auto 0;
+    width: 320px;
+    background: #fff8f0;
+    border: 0.5px solid rgba(201,169,110,0.35);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(201,169,110,0.1);
+  }
+
+  .cal-header {
+    background: linear-gradient(135deg, #c9a96e, #e8d5b0);
+    color: #3a2e1e;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 13px 0;
+  }
+
+  .cal-body {
+    padding: 12px 14px 16px;
+  }
+
+  .cal-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 8px;
+  }
+
+  .cal-days-header span {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #9a7d55;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .cal-days-header .cal-sun { color: #c9a96e; }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  }
+
+  .cal-day {
+    text-align: center;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #5a4633;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .cal-day.empty { pointer-events: none; }
+
+  .cal-day.sunday { color: #c9a96e; }
+
+  .cal-day.wedding {
+    font-weight: 600;
+    color: #3a2e1e;
+    z-index: 1;
+  }
+
+  .cal-day.wedding::before {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 25s-10-7-10-14a6 6 0 0 1 10-4.5A6 6 0 0 1 25 11c0 7-10 14-10 14z' fill='rgba(212%2C133%2C106%2C0.15)' stroke='%23d4856a' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
   }
 
   /* Parents */
@@ -169,8 +276,8 @@
   }
 
   .parents-names {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-family: 'Noto Serif', serif;
+    font-size: 22px;
     font-weight: 400;
     color: #3a2e1e;
     letter-spacing: 1px;
@@ -194,7 +301,7 @@
   }
 
   .date-big {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Golos Text', sans-serif;
     font-size: 88px;
     font-weight: 200;
     line-height: 1;
@@ -218,10 +325,10 @@
     background: rgba(201,169,110,0.12);
     border: 0.5px solid rgba(201,169,110,0.4);
     border-radius: 20px;
-    padding: 6px 22px;
-    font-family: 'Cormorant Garamond', serif;
+    padding: 8px 26px;
+    font-family: 'Noto Serif', serif;
     font-style: italic;
-    font-size: 17px;
+    font-size: 19px;
     color: #5a4633;
   }
 
@@ -267,8 +374,8 @@
   }
 
   .timer-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-family: 'Noto Serif', serif;
+    font-size: 46px;
     font-weight: 300;
     line-height: 1;
     color: #3a2e1e;
@@ -278,7 +385,7 @@
   .timer-number.flip { animation: flipNum 0.25s ease; }
 
   .timer-suffix {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #c9a96e;
@@ -319,7 +426,7 @@
   .program-item:last-child { border-bottom: none; }
 
   .prog-time {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-size: 15px;
     color: #c9a96e;
     min-width: 52px;
@@ -346,16 +453,16 @@
   }
 
   .prog-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-family: 'Noto Serif', serif;
+    font-size: 18px;
     font-weight: 400;
     color: #3a2e1e;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
 
   .prog-sub {
-    font-size: 13px;
+    font-size: 14px;
     color: #7a6040;
     line-height: 1.5;
   }
@@ -394,7 +501,7 @@
   }
 
   .venue-name {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-size: 24px;
     font-weight: 400;
     color: #3a2e1e;
@@ -402,7 +509,7 @@
   }
 
   .venue-addr {
-    font-size: 12px;
+    font-size: 14px;
     color: #9a7d55;
     margin-top: 2px;
   }
@@ -434,7 +541,7 @@
     border: 0.5px solid rgba(201,169,110,0.6);
     border-radius: 2px;
     padding: 9px 22px;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Golos Text', sans-serif;
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -453,15 +560,15 @@
   }
 
   .footer-names {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif', serif;
     font-style: italic;
-    font-size: 22px;
+    font-size: 26px;
     color: #c9a96e;
     letter-spacing: 3px;
   }
 
   .footer-date {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 4px;
     color: #b8956a;
     margin-top: 6px;
@@ -541,12 +648,13 @@
 
     <!-- Invite text -->
     <div class="invite-block">
-      <div class="invite-from" id="txt-invite-label">Құрметті қонақтарымыз</div>
       <div class="invite-body" id="txt-invite-body">
-        Үйлену тойымызға<br>
-        Сізді шын жүректен шақырамыз.<br><br>
-        Бұл қуанышты күнді бізбен бірге<br>
-        тойлап, қуанышымызға ортақтасыңыз.
+        Құрметті ағайын-туыс, бауырлар!<br>
+        Қадірлі құда-жекжат, нағашы-жиендер!<br>
+        Сыйлас дос-жарандар, әріптестер мен көршілер!
+      </div>
+      <div class="invite-body invite-body-2" id="txt-invite-body3">
+        Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуыңызды өтінеміз. Төрімізден орын алып, жас жұбайларға ақ баталарыңызды беріп, думанымызды бірге қыздыруға келіңіздер!
       </div>
     </div>
 
@@ -559,8 +667,20 @@
     <!-- Date -->
     <div class="date-section">
       <div class="date-label" id="txt-date-label">Той күні</div>
-      <div class="date-big">11</div>
-      <div class="date-sub" id="txt-date-month">Шілде &nbsp;·&nbsp; 2026</div>
+
+      <!-- Calendar widget -->
+      <div class="cal-card">
+        <div class="cal-header" id="txt-cal-month">Шілде 2026</div>
+        <div class="cal-body">
+          <div class="cal-days-header">
+            <span id="cal-d0">Дс</span><span id="cal-d1">Сс</span><span id="cal-d2">Ср</span>
+            <span id="cal-d3">Бс</span><span id="cal-d4">Жм</span>
+            <span id="cal-d5" class="cal-sat">Сб</span><span id="cal-d6" class="cal-sun">Жс</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+      </div>
+
       <div class="time-pill" id="txt-time-pill">Сағат 19:00</div>
     </div>
 
@@ -686,7 +806,10 @@
       'txt-parents-names': 'Елжан мен Гүлзайда',
       'txt-hero-label':    'Үйлену той · 2026',
       'txt-invite-label':  'Құрметті қонақтарымыз',
-      'txt-invite-body':   'Үйлену тойымызға<br>Сізді шын жүректен шақырамыз.<br><br>Бұл қуанышты күнді бізбен бірге<br>тойлап, қуанышымызға ортақтасыңыз.',
+      'txt-invite-body':   'Құрметті ағайын-туыс, бауырлар!<br>Қадірлі құда-жекжат, нағашы-жиендер!<br>Сыйлас дос-жарандар, әріптестер мен көршілер!',
+      'txt-invite-body3':  'Ұлымыз Мейрам мен келініміз Арайдың үйлену тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуыңызды өтінеміз. Төрімізден орын алып, жас жұбайларға ақ баталарыңызды беріп, думанымызды бірге қыздыруға келіңіздер!',
+      'txt-cal-month':     'Шілде 2026',
+      'cal-d0': 'Дс', 'cal-d1': 'Сс', 'cal-d2': 'Ср', 'cal-d3': 'Бс', 'cal-d4': 'Жм', 'cal-d5': 'Сб', 'cal-d6': 'Жс',
       'txt-parents-label': 'Той иелері',
       'txt-date-label':    'Той күні',
       'txt-date-month':    'Шілде &nbsp;·&nbsp; 2026',
@@ -714,7 +837,10 @@
       'txt-parents-names': 'Eljan ve Gülzayda',
       'txt-hero-label':    'Düğün · 2026',
       'txt-invite-label':  'Sevgili misafirlerimiz',
-      'txt-invite-body':   'Düğün törenimize<br>sizi içtenlikle davet ediyoruz.<br><br>Bu kutsal günü bizimle birlikte<br>kutlamanızı ve mutluluğumuza<br>ortak olmanızı diliyoruz.',
+      'txt-invite-body':   'Sevgili akraba ve yakınlarımız!<br>Değerli dost ve komşularımız!',
+      'txt-invite-body3':  'Oğlumuz Meiram ile gelinimiz Aray\'ın düğün törenine teşrif buyurmanızı, soframızdan nasibinizi almanızı ve genç çifti dualarınızla kuşatmanızı rica ediyoruz.',
+      'txt-cal-month':     'Temmuz 2026',
+      'cal-d0': 'Pt', 'cal-d1': 'Sa', 'cal-d2': 'Ça', 'cal-d3': 'Pe', 'cal-d4': 'Cu', 'cal-d5': 'Ct', 'cal-d6': 'Pz',
       'txt-parents-label': 'Düğün sahipleri',
       'txt-date-label':    'Düğün tarihi',
       'txt-date-month':    'Temmuz &nbsp;·&nbsp; 2026',
@@ -742,7 +868,10 @@
       'txt-parents-names': 'Yelzhan &amp; Gulzaida',
       'txt-hero-label':    'Wedding · 2026',
       'txt-invite-label':  'Dear guests',
-      'txt-invite-body':   'We joyfully invite you<br>to celebrate our wedding.<br><br>Please join us on this special day<br>and share in our happiness.',
+      'txt-invite-body':   'Dear family and relatives!<br>Dear friends, colleagues and neighbours!',
+      'txt-invite-body3':  'Please join us at the wedding celebration of our son Meiram and our daughter-in-law Aray. Take a place of honour at our table, bless the newlyweds and celebrate together with us!',
+      'txt-cal-month':     'July 2026',
+      'cal-d0': 'Mo', 'cal-d1': 'Tu', 'cal-d2': 'We', 'cal-d3': 'Th', 'cal-d4': 'Fr', 'cal-d5': 'Sa', 'cal-d6': 'Su',
       'txt-parents-label': 'Hosts',
       'txt-date-label':    'Wedding date',
       'txt-date-month':    'July &nbsp;·&nbsp; 2026',
@@ -798,6 +927,36 @@
     p.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size}px;animation-duration:${10+Math.random()*14}s;animation-delay:${Math.random()*12}s;opacity:${0.1+Math.random()*0.15}`;
     document.body.appendChild(p);
   }
+
+  // ── Calendar ──────────────────────────────────────────────────
+  function buildCalendar() {
+    const grid = document.getElementById('cal-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    // July 2026: 31 days, starts Wednesday (Mon=0 → Wed=2)
+    const firstDay = 2;
+    const totalDays = 31;
+    // Empty cells before first day
+    for (let i = 0; i < firstDay; i++) {
+      const el = document.createElement('div');
+      el.className = 'cal-day empty';
+      grid.appendChild(el);
+    }
+    for (let d = 1; d <= totalDays; d++) {
+      const idx = d - 1 + firstDay;
+      const col = idx % 7;
+      const el = document.createElement('div');
+      el.className = 'cal-day' + (col === 6 ? ' sunday' : '');
+      if (d === 11) {
+        el.classList.add('wedding');
+        el.textContent = d;
+      } else {
+        el.textContent = d;
+      }
+      grid.appendChild(el);
+    }
+  }
+  buildCalendar();
 
   // ── Countdown timer ───────────────────────────────────────────
   const target = new Date('2026-07-11T19:00:00');
